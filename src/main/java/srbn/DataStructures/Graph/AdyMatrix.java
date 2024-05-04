@@ -62,7 +62,7 @@ public class AdyMatrix {
 
     public void setTrafic(int origin, int destination, Traffic traffic) {
         if(mtrx[origin][destination] != null){
-            mtrx[origin][destination].getRoute().setTraffic(traffic);
+            mtrx[origin][destination].getRoute().addTraffic(traffic);
         }
     }
 

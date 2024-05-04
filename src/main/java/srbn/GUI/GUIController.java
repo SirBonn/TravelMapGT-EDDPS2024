@@ -7,10 +7,11 @@ import srbn.DataStructures.Lists.NodeGList.OrderedNodeGList;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 
 import srbn.DataStructures.Lists.CellList.OrderedCellList;
@@ -21,6 +22,11 @@ public class GUIController {
     private OrderedCellList pathSelected;
     private MatrixCell previousCell;
     private NodeG principalTarget;
+    private Thread t;
+    private boolean isPaused = false;
+
+
+    private boolean isRealHour = true;
 
 
     public GUIController() {
@@ -46,26 +52,48 @@ public class GUIController {
         this.principalTarget = principalTarget;
     }
 
-    public void setClock(JFrame mainFrame, JLabel hourLabel) {
 
+    public boolean isRealHour() {
+        return isRealHour;
+    }
+
+    public void setRealHour() {
+        JOptionPane.showMessageDialog(null, "Reloj restablecido", "hola", JOptionPane.INFORMATION_MESSAGE);
+
+        isRealHour = true;
+    }
+
+    public void setClock(JFrame mainFrame, JLabel hourLabel) {
         this.label = hourLabel;
         label.setHorizontalAlignment(JLabel.RIGHT);
         label.setFont(new Font("Arial", Font.BOLD, 15));
 
-        Thread t = new Thread(new Runnable() {
+        this.t = new Thread(new Runnable() {
             @Override
             public void run() {
+
                 while (true) {
-                    updateHour(label);
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+
+                    if (!isPaused) {
+                        if (isRealHour) {
+                            updateHour(label);
+                        } else {
+                            label.setText(label.getText());
+                        }
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
         });
         t.start();
+    }
+
+    public void pauseClock() {
+        this.isPaused = !isPaused;
     }
 
     private void updateHour(JLabel hourLabel) {
@@ -130,7 +158,9 @@ public class GUIController {
             text += setNodeWeight(path.get(j), orderBy, null);
 
             if (path.get(j).getRoute().getTraffic() != null) {
-                text += "Probable trafico de: " + path.get(j).getRoute().getTraffic().getInitHour() + " a " + path.get(j).getRoute().getTraffic().getEndHour();
+                for (int k = 0; k < path.get(j).getRoute().getTraffic().getSize(); k++) {
+                    text += "Probable trafico de: " + path.get(j).getRoute().getTraffic().get(k).getInitHour() + " a " + path.get(j).getRoute().getTraffic().get(k).getEndHour() + "\n";
+                }
             }
 
             text += "\n";
@@ -273,5 +303,70 @@ public class GUIController {
 
         sortedList = new GenericOrderedList<>(array);
         return sortedList;
+    }
+
+    public void editClock(JFrame parentFrame, JLabel hourLabel) {
+        this.isRealHour = false;
+        JFrame setupClock = new JFrame("Configurar hora");
+        JLabel labelHora = new JLabel("Hora:");
+        JLabel labelMinutos = new JLabel("Minutos:");
+        JLabel labelSegundos = new JLabel("Segundos:");
+
+        JTextField campoHora = new JTextField(2);
+        JTextField campoMinutos = new JTextField(2);
+        JTextField campoSegundos = new JTextField(2);
+
+        JPanel configPanel = new JPanel();
+        configPanel.setLayout(new GridLayout(3, 2));
+        configPanel.add(labelHora);
+        configPanel.add(campoHora);
+        configPanel.add(labelMinutos);
+        configPanel.add(campoMinutos);
+        configPanel.add(labelSegundos);
+        configPanel.add(campoSegundos);
+
+        JButton okButton = new JButton("Aceptar");
+        okButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                valuate(parentFrame, hourLabel, campoHora, campoMinutos, campoSegundos);
+                setupClock.dispose(); // Cerrar la ventana emergente después de aceptar
+            }
+        });
+
+        JPanel panelBoton = new JPanel();
+        panelBoton.add(okButton);
+
+        setupClock.getContentPane().setLayout(new BorderLayout());
+        setupClock.getContentPane().add(configPanel, BorderLayout.CENTER);
+        setupClock.getContentPane().add(panelBoton, BorderLayout.SOUTH);
+
+        setupClock.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setupClock.setLocationRelativeTo(parentFrame); // Centrar la ventana emergente respecto a la ventana padre
+        setupClock.setSize(250, 150);
+        setupClock.setResizable(false);
+        setupClock.setVisible(true);
+    }
+
+    private void valuate(JFrame parent, JLabel hourLabel, JTextField hh, JTextField mm, JTextField ss) {
+        // Validar los valores ingresados
+        try {
+            int h = Integer.parseInt(hh.getText());
+            int m = Integer.parseInt(mm.getText());
+            int s = Integer.parseInt(ss.getText());
+
+
+            if (h >= 0 && h <= 23 && m >= 0 && m <= 59 && s >= 0 && s <= 59) {
+                SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
+                Date nuevaHora = formatoHora.parse(String.format("%02d:%02d:%02d", h, m, s));
+                hourLabel.setText(formatoHora.format(nuevaHora));
+                setClock(parent, hourLabel);
+                JOptionPane.showMessageDialog(parent, "Configuración aceptada", "Información", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(parent, "Ingrese valores válidos", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(parent, "Ingrese valores numéricos", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

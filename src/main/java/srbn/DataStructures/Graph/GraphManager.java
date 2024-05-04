@@ -54,7 +54,7 @@ public class GraphManager {
         int finalT = Integer.parseInt(fields[3]);
         int trafficP = Integer.parseInt(fields[4]);
 
-        matrix.setTrafic(src.getId(), dest.getId(), new Traffic(initialT, finalT, trafficP));
-        
+        matrix.setTrafic(src.getId()+1, dest.getId()+1, new Traffic(initialT, finalT, trafficP));
+        System.out.println("Trafico añadido: " + src.getAlias() + " -> " + dest.getAlias());
     }
 }

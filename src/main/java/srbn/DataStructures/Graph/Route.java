@@ -1,5 +1,7 @@
 package srbn.DataStructures.Graph;
 
+import srbn.DataStructures.Lists.GenericList.GenericOrderedList;
+
 public class Route {
 
     private int timeCar;
@@ -7,9 +9,9 @@ public class Route {
     private int gasUsage;
     private int personalWearing;
     private int distance;
-    private Traffic traffic;
+    private GenericOrderedList<Traffic> traffic;
 
-    public Route(){
+    public Route() {
     }
 
     public Route(int timeCar, int timeWalk, int gasUsage, int personalWearing, int distance) {
@@ -61,11 +63,15 @@ public class Route {
         this.distance = distance;
     }
 
-    public Traffic getTraffic() {
+    public GenericOrderedList<Traffic> getTraffic() {
         return traffic;
     }
 
-    public void setTraffic(Traffic traffic) {
-        this.traffic = traffic;
+    public void addTraffic(Traffic traffic) {
+
+        if (this.traffic == null) {
+            this.traffic = new GenericOrderedList<>();
+        }
+        this.traffic.add(traffic);
     }
 }
