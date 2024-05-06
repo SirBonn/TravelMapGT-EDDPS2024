@@ -15,6 +15,7 @@ public class AdyMatrix {
     //matrix[i][j] = i -> destination, j -> origin
     private MatrixCell[][] mtrx;
     private OrderedNodeGList nodesList;
+    private OrderedCellList visitedCells;
 
     public AdyMatrix() {
     }
@@ -23,15 +24,21 @@ public class AdyMatrix {
         mtrx = new MatrixCell[size][size];
     }
 
-    public GenericOrderedList<OrderedCellList> travel(NodeG start, NodeG target) {
-        GenericOrderedList<OrderedCellList> path = findPathBFS(start, target);
+    public GenericOrderedList<OrderedCellList> travel(NodeG start, NodeG target, boolean isOrdered) {
 
-        if (path.getSize()!=0) {
+        if(start.getId() == target.getId()){
+            String msg = "No puedes viajar a la misma ubicación";
+            JOptionPane.showMessageDialog(null, msg, "Info", JOptionPane.INFORMATION_MESSAGE);
+            return new GenericOrderedList<>();
+        }
+
+        GenericOrderedList<OrderedCellList> path = findPathBFS(start, target, isOrdered);
+
+        if (path.getSize() != 0) {
             System.out.println("Camino encontrado: " + path);
-            new GraphVizManager(start.getAlias() +"To"+target.getAlias(), path);
-
+            new GraphVizManager(start.getAlias() + "To" + target.getAlias(), path);
             System.out.println("Arbol B generado: ");
-            
+
         } else {
             String msg = "No hay caminos desde " + start.getAlias() + " hacia " + target.getAlias();
             JOptionPane.showMessageDialog(null, msg, "Error", JOptionPane.ERROR_MESSAGE);
@@ -61,7 +68,7 @@ public class AdyMatrix {
     }
 
     public void setTrafic(int origin, int destination, Traffic traffic) {
-        if(mtrx[origin][destination] != null){
+        if (mtrx[origin][destination] != null) {
             mtrx[origin][destination].getRoute().addTraffic(traffic);
         }
     }
@@ -88,7 +95,7 @@ public class AdyMatrix {
         }
     }
 
-    public int getSize(){
+    public int getSize() {
         return mtrx[0].length;
     }
 
@@ -100,7 +107,8 @@ public class AdyMatrix {
         this.nodesList = nodesList;
     }
 
-    private GenericOrderedList<OrderedCellList> findPathBFS(NodeG start, NodeG target) {
+    private GenericOrderedList<OrderedCellList> findPathBFS(NodeG start, NodeG target, boolean isOrdered){
+        visitedCells = new OrderedCellList();
         GenericOrderedList<OrderedCellList> cellsPath = new GenericOrderedList<>();
         GenericOrderedList<OrderedNodeGList> orderedAllPaths = new GenericOrderedList<>();
         QueueGn<OrderedNodeGList> queueGn = new QueueGn<>();
@@ -138,10 +146,23 @@ public class AdyMatrix {
                     newCellPath.add(cell);
                     queueGn.add(newOrderedPath);
                     queueCells.add(newCellPath);
-                    cell.setVisited(true);
+                    mtrx[currentIndex][i].setVisited(true);
+                }
+                if(isOrdered){
+                    cell = mtrx[i][currentIndex];
+                    if (cell != null && !cell.isVisited()) {
+                        OrderedNodeGList newOrderedPath = new OrderedNodeGList(currentOrderedPath);
+                        OrderedCellList newCellPath = new OrderedCellList(currentCellPath);
+                        newOrderedPath.add(cell.getDestination());
+                        newCellPath.add(cell);
+                        queueGn.add(newOrderedPath);
+                        queueCells.add(newCellPath);
+                        mtrx[i][currentIndex].setVisited(true);
+                    }
                 }
             }
         }
+
         resetVisited(mtrx);
 
         return cellsPath;
@@ -160,6 +181,7 @@ public class AdyMatrix {
             }
         }
     }
+
     private void markBackwardPath(OrderedNodeGList path) {
         if (path.getSize() <= 1) {
             return;
@@ -172,13 +194,16 @@ public class AdyMatrix {
             int currentIndex = currentNode.getId();
             int prevIndex = prevNode.getId();
 
-            if(mtrx[currentIndex][prevIndex] != null){
+            if (mtrx[currentIndex][prevIndex] != null) {
                 mtrx[currentIndex][prevIndex].setVisited(true);
+                visitedCells.add(mtrx[currentIndex][prevIndex]);
             }
 
             for (int j = 0; j < mtrx[currentIndex].length; j++) {
-                if (j != prevIndex && mtrx[currentIndex][j] != null) {
-                    mtrx[currentIndex][j].setVisited(false);
+                if (mtrx[currentIndex][j] != null) {
+                    if (j != prevIndex && !visitedCells.contains(mtrx[currentIndex][j])) {
+                        mtrx[currentIndex][j].setVisited(false);
+                    }
                 }
             }
         }

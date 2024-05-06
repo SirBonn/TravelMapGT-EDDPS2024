@@ -24,8 +24,6 @@ public class GUIController {
     private NodeG principalTarget;
     private Thread t;
     private boolean isPaused = false;
-
-
     private boolean isRealHour = true;
 
 
@@ -34,6 +32,10 @@ public class GUIController {
 
     public OrderedCellList getPathSelected() {
         return pathSelected;
+    }
+
+    public void setPathSelected(OrderedCellList pathSelected) {
+        this.pathSelected = pathSelected;
     }
 
     public MatrixCell getPreviousCell() {
@@ -76,9 +78,10 @@ public class GUIController {
 
                     if (!isPaused) {
                         if (isRealHour) {
-                            updateHour(label);
+                            updateHour(label, true);
                         } else {
                             label.setText(label.getText());
+                            updateHour(label, false);
                         }
                         try {
                             Thread.sleep(1000);
@@ -96,10 +99,32 @@ public class GUIController {
         this.isPaused = !isPaused;
     }
 
-    private void updateHour(JLabel hourLabel) {
-        SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
-        Date ahora = new Date();
-        hourLabel.setText(formatoHora.format(ahora));
+    private void updateHour(JLabel hourLabel, boolean isRealHour) {
+        if (isRealHour) {
+            SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
+            Date ahora = new Date();
+            hourLabel.setText(formatoHora.format(ahora));
+        } else {
+            String[] time = hourLabel.getText().split(":");
+            int h = Integer.parseInt(time[0]);
+            int m = Integer.parseInt(time[1]);
+            int s = Integer.parseInt(time[2]);
+
+            s++;
+            if (s == 60) {
+                s = 0;
+                m++;
+                if (m == 60) {
+                    m = 0;
+                    h++;
+                    if (h == 24) {
+                        h = 0;
+                    }
+                }
+            }
+            hourLabel.setText(String.format("%02d:%02d:%02d", h, m, s));
+        }
+
     }
 
     public void setItems(JComboBox comboBox, OrderedNodeGList nodes) {
@@ -184,6 +209,13 @@ public class GUIController {
                     return path.getTotallyTimeWalk() + " Wmin\n";
                 case 4:
                     return path.getTotallyTimeCar() + " Cmin\n";
+                case 5:
+                    return path.getTotallyDistance() / path.getTotallyGasUsage() + " km/Gal\n";
+                case 6:
+                    return path.getTotallyDistance() / path.getTotallyPersonalWearing() + " km/cansancio\n";
+                case 7:
+                    return path.getTotallyTimeCar() + path.getTotallyTimeWalk() + " Cmin + Wmin\n";
+
                 default:
                     return "";
             }
@@ -199,6 +231,12 @@ public class GUIController {
                     return matrixCell.getRoute().getTimeWalk() + " Wmin\n";
                 case 4:
                     return matrixCell.getRoute().getTimeCar() + " Cmin\n";
+                case 5:
+                    return matrixCell.getRoute().getDistance() / matrixCell.getRoute().getGasUsage() + " km/Gal\n";
+                case 6:
+                    return matrixCell.getRoute().getDistance() / matrixCell.getRoute().getPersonalWearing() + " km/cansancio\n";
+                case 7:
+                    return matrixCell.getRoute().getTimeCar() + matrixCell.getRoute().getTimeWalk() + " Cmin + Wmin\n";
                 default:
                     return "";
             }
@@ -296,6 +334,38 @@ public class GUIController {
                     }
                 }
                 break;
+            case 5:
+                for (int i = 0; i < array.length; i++) {
+                    for (int j = 0; j < array.length - 1; j++) {
+                        if (array[j].getTotallyDistance() / array[j].getTotallyGasUsage() > array[j + 1].getTotallyDistance() / array[j + 1].getTotallyGasUsage()) {
+                            OrderedCellList temp = array[j];
+                            array[j] = array[j + 1];
+                            array[j + 1] = temp;
+                        }
+                    }
+                }
+                break;
+            case 6:
+                for (int i = 0; i < array.length; i++) {
+                    for (int j = 0; j < array.length - 1; j++) {
+                        if (array[j].getTotallyDistance() / array[j].getTotallyPersonalWearing() > array[j + 1].getTotallyDistance() / array[j + 1].getTotallyPersonalWearing()) {
+                            OrderedCellList temp = array[j];
+                            array[j] = array[j + 1];
+                            array[j + 1] = temp;
+                        }
+                    }
+                }
+                break;
+            case 7:
+                for (int i = 0; i < array.length; i++) {
+                    for (int j = 0; j < array.length - 1; j++) {
+                        if (array[j].getTotallyTimeCar() + array[j].getTotallyTimeWalk() > array[j + 1].getTotallyTimeCar() + array[j + 1].getTotallyTimeWalk()) {
+                            OrderedCellList temp = array[j];
+                            array[j] = array[j + 1];
+                            array[j + 1] = temp;
+                        }
+                    }
+                }
             default:
                 System.out.println("Invalid option");
                 break;
@@ -342,14 +412,14 @@ public class GUIController {
         setupClock.getContentPane().add(panelBoton, BorderLayout.SOUTH);
 
         setupClock.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setupClock.setLocationRelativeTo(parentFrame); // Centrar la ventana emergente respecto a la ventana padre
+        setupClock.setLocationRelativeTo(null);
         setupClock.setSize(250, 150);
         setupClock.setResizable(false);
         setupClock.setVisible(true);
     }
 
     private void valuate(JFrame parent, JLabel hourLabel, JTextField hh, JTextField mm, JTextField ss) {
-        // Validar los valores ingresados
+
         try {
             int h = Integer.parseInt(hh.getText());
             int m = Integer.parseInt(mm.getText());

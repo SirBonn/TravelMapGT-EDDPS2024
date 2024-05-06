@@ -5,6 +5,7 @@ import srbn.DataStructures.Graph.GraphManager;
 import srbn.DataStructures.Lists.CellList.OrderedCellList;
 import srbn.GraphViz.GraphVizManager;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -34,7 +35,9 @@ public class FileManager {
                     cellList.add(graphManager.newCell(fields));
 
                 } else {
-                    System.err.println("Error: La línea no tiene el formato esperado.");
+                    String msg = "Error en archivo de ubicaciones, no tiene el formato esperado.";
+                    JOptionPane.showMessageDialog(null, msg, "ERROR", JOptionPane.ERROR_MESSAGE);
+                    break;
                 }
             }
 
@@ -45,7 +48,8 @@ public class FileManager {
             new GraphVizManager(adyMatrix).drawGraph("Graphs/", "grafo", "full_map", null);
 
         } catch (IOException e) {
-            System.err.println("Error al leer el archivo: " + e.getMessage());
+            String msg = "Error al leer el archivo: " + e.getMessage();
+            JOptionPane.showMessageDialog(null, msg, "ERROR", JOptionPane.ERROR_MESSAGE);
         }
 
         return adyMatrix;
@@ -65,13 +69,16 @@ public class FileManager {
                     graphManager.setTrafic(matrix, fields);
 
                 } else {
-                    System.err.println("Error: La línea no tiene el formato esperado.");
+                    String msg = "Error en archivo de tráfico, no tiene el formato esperado.";
+                    JOptionPane.showMessageDialog(null, msg, "ERROR", JOptionPane.ERROR_MESSAGE);
+                    break;
                 }
             }
 
 
         } catch (IOException e) {
-            System.err.println("Error al leer el archivo: " + e.getMessage());
+            String msg = "Error al leer el archivo de tráfico: " + e.getMessage();
+            JOptionPane.showMessageDialog(null, msg, "ERROR", JOptionPane.ERROR_MESSAGE);
         }
 
         return matrix;

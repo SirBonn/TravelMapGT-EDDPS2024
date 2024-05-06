@@ -94,6 +94,13 @@ public class TravelMapGT extends javax.swing.JFrame {
         pauseClock = new javax.swing.JMenuItem();
         editHour = new javax.swing.JMenuItem();
         resetClock = new javax.swing.JMenuItem();
+        jSeparator6 = new javax.swing.JPopupMenu.Separator();
+        jMenu1 = new javax.swing.JMenu();
+        getBetterByGasRoute = new javax.swing.JMenuItem();
+        getBetterByWear = new javax.swing.JMenuItem();
+        getBetterByDistancenGas = new javax.swing.JMenuItem();
+        getBetterByDistancenWear = new javax.swing.JMenuItem();
+        getBetterByDistanceTimenTraffic = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
 
@@ -107,11 +114,11 @@ public class TravelMapGT extends javax.swing.JFrame {
 
         jLabel1.setText("Hora:");
 
-        srcComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Origen"}));
+        srcComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Origen"}));
 
         jLabel2.setText("Origen ");
 
-        destComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Destino"}));
+        destComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Destino"}));
 
         jLabel3.setText("Destino");
 
@@ -141,61 +148,61 @@ public class TravelMapGT extends javax.swing.JFrame {
         javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
         infoPanel.setLayout(infoPanelLayout);
         infoPanelLayout.setHorizontalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(infoPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(travelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(destComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator2)
-                    .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(hourLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(srcComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(infoPanelLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
+                infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(infoPanelLayout.createSequentialGroup()
+                                .addContainerGap()
                                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(infoPanelLayout.createSequentialGroup()
-                                .addComponent(fullMapViewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(isWalkButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                                        .addComponent(travelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(destComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jSeparator2)
+                                        .addGroup(infoPanelLayout.createSequentialGroup()
+                                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(hourLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(srcComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(infoPanelLayout.createSequentialGroup()
+                                                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(infoPanelLayout.createSequentialGroup()
+                                                                .addGap(6, 6, 6)
+                                                                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addGroup(infoPanelLayout.createSequentialGroup()
+                                                                .addComponent(fullMapViewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(isWalkButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap())
         );
         infoPanelLayout.setVerticalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(infoPanelLayout.createSequentialGroup()
-                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hourLabel)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(srcComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addGap(5, 5, 5)
-                .addComponent(destComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(travelButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(isWalkButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(fullMapViewButton)
-                        .addComponent(jLabel4)))
-                .addGap(6, 6, 6))
+                infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(infoPanelLayout.createSequentialGroup()
+                                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(hourLabel)
+                                        .addComponent(jLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(srcComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel3)
+                                .addGap(5, 5, 5)
+                                .addComponent(destComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(travelButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2)
+                                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(isWalkButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(fullMapViewButton)
+                                                .addComponent(jLabel4)))
+                                .addGap(6, 6, 6))
         );
 
         infoRouteLabel.setColumns(20);
@@ -225,48 +232,48 @@ public class TravelMapGT extends javax.swing.JFrame {
             }
         });
 
-        orderComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Distancia", "Desgaste", "Consumo", "Tiempo" }));
+        orderComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Distancia", "Desgaste", "Consumo", "Tiempo"}));
 
         javax.swing.GroupLayout pathsPanelLayout = new javax.swing.GroupLayout(pathsPanel);
         pathsPanel.setLayout(pathsPanelLayout);
         pathsPanelLayout.setHorizontalGroup(
-            pathsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pathsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pathsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(pathsScrollPane)
-                    .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pathsPanelLayout.createSequentialGroup()
-                        .addGroup(pathsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pathsPanelLayout.createSequentialGroup()
-                                .addComponent(orderByButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(orderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                pathsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pathsPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(pathsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(pathsScrollPane)
+                                        .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pathsPanelLayout.createSequentialGroup()
+                                                .addGroup(pathsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(pathsPanelLayout.createSequentialGroup()
+                                                                .addComponent(orderByButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(18, 18, 18)
+                                                                .addComponent(orderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addContainerGap())
         );
         pathsPanelLayout.setVerticalGroup(
-            pathsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pathsPanelLayout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
-                .addGroup(pathsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(orderByButton)
-                    .addComponent(orderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pathsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                pathsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pathsPanelLayout.createSequentialGroup()
+                                .addContainerGap(8, Short.MAX_VALUE)
+                                .addGroup(pathsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(orderByButton)
+                                        .addComponent(orderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pathsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
         );
 
         jLabel7.setText("Ruta:");
 
         navigatePanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        destComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Destino"}));
+        destComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Destino"}));
 
         jLabel5.setText("Ubicacion:");
 
@@ -292,44 +299,44 @@ public class TravelMapGT extends javax.swing.JFrame {
         javax.swing.GroupLayout navigatePanelLayout = new javax.swing.GroupLayout(navigatePanel);
         navigatePanel.setLayout(navigatePanelLayout);
         navigatePanelLayout.setHorizontalGroup(
-            navigatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(navigatePanelLayout.createSequentialGroup()
-                .addGroup(navigatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navigatePanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE))
-                    .addGroup(navigatePanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(navigatePanelLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(navigatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(destComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
-                            .addComponent(ubicationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(navigateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                navigatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(navigatePanelLayout.createSequentialGroup()
+                                .addGroup(navigatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navigatePanelLayout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE))
+                                        .addGroup(navigatePanelLayout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(navigatePanelLayout.createSequentialGroup()
+                                                .addGap(17, 17, 17)
+                                                .addGroup(navigatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(destComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                                                        .addComponent(ubicationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(navigateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addContainerGap())
         );
         navigatePanelLayout.setVerticalGroup(
-            navigatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(navigatePanelLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ubicationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(destComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(navigateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                navigatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(navigatePanelLayout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ubicationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(destComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(navigateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mapPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -380,6 +387,8 @@ public class TravelMapGT extends javax.swing.JFrame {
             }
         });
         jMenu2.add(graphTreeOption);
+
+        jSeparator5.setToolTipText("");
         jMenu2.add(jSeparator5);
 
         pauseClock.setText("Pausar Reloj");
@@ -405,6 +414,51 @@ public class TravelMapGT extends javax.swing.JFrame {
             }
         });
         jMenu2.add(resetClock);
+        jMenu2.add(jSeparator6);
+
+        jMenu1.setText("Encontrar mejor ruta");
+
+        getBetterByGasRoute.setText("En base a gasolina");
+        getBetterByGasRoute.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getBetterByGasRouteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(getBetterByGasRoute);
+
+        getBetterByWear.setText("En base al desgaste");
+        getBetterByWear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getBetterByWearActionPerformed(evt);
+            }
+        });
+        jMenu1.add(getBetterByWear);
+
+        getBetterByDistancenGas.setText("En base a distancia y gasolina");
+        getBetterByDistancenGas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getBetterByDistancenGasActionPerformed(evt);
+            }
+        });
+        jMenu1.add(getBetterByDistancenGas);
+
+        getBetterByDistancenWear.setText("En base a distancia y desgaste");
+        getBetterByDistancenWear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getBetterByDistancenWearActionPerformed(evt);
+            }
+        });
+        jMenu1.add(getBetterByDistancenWear);
+
+        getBetterByDistanceTimenTraffic.setText("En base a la distancia, tiempo y probabilidad de tráfico");
+        getBetterByDistanceTimenTraffic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getBetterByDistanceTimenTrafficActionPerformed(evt);
+            }
+        });
+        jMenu1.add(getBetterByDistanceTimenTraffic);
+
+        jMenu2.add(jMenu1);
 
         jMenuBar1.add(jMenu2);
 
@@ -420,46 +474,46 @@ public class TravelMapGT extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(infoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(routeInfoPanel)
-                    .addComponent(pathsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(routePanel)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(mapPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(infoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(routeInfoPanel)
+                                        .addComponent(pathsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(navigatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(routePanel)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(mapPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(navigatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(infoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pathsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(routeInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(mapPanel)
-                            .addComponent(navigatePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(routePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(infoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(pathsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(routeInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(mapPanel)
+                                                        .addComponent(navigatePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel7)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(routePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap())
         );
 
         pack();
@@ -474,11 +528,12 @@ public class TravelMapGT extends javax.swing.JFrame {
         this.orderedBy = orderComboBox.getSelectedIndex();
         NodeG srcNode = adyMatrix.getNodesList().get(srcComboBox1.getSelectedIndex() - 1);
         NodeG destNode = adyMatrix.getNodesList().get(destComboBox2.getSelectedIndex() - 1);
-        this.actualPaths = guiController.sortPaths(adyMatrix.travel(srcNode, destNode), orderedBy);
+        this.actualPaths = guiController.sortPaths(adyMatrix.travel(srcNode, destNode, isWalkButton.isSelected()), orderedBy);
         guiController.setPathsButtons(pathsScroll, this.actualPaths,
                 srcNode.getAlias(), destNode.getAlias(), routePanel, routeMapLabel, infoRouteLabel, orderedBy);
         ubicationLabel.setText(srcNode.getAlias());
         guiController.setPrincipalTarget(destNode);
+
         if (isWalkButton.isSelected()) {
             System.out.println("modo viaje a pata ");
 
@@ -499,6 +554,7 @@ public class TravelMapGT extends javax.swing.JFrame {
 
 
         }
+
         navigatePanel.setVisible(true);
 
     }//GEN-LAST:event_travelButtonActionPerformed
@@ -537,14 +593,14 @@ public class TravelMapGT extends javax.swing.JFrame {
         if (actualCell != null && !guiController.getPathSelected().contains(actualCell)) {
 
 
-            this.actualPaths = guiController.sortPaths(adyMatrix.travel(actualCell.getDestination(), guiController.getPrincipalTarget()), orderedBy);
+            this.actualPaths = guiController.sortPaths(adyMatrix.travel(actualCell.getDestination(), guiController.getPrincipalTarget(), isWalkButton.isSelected()), orderedBy);
             guiController.setPathsButtons(pathsScroll, this.actualPaths,
                     actualCell.getDestination().getAlias(), guiController.getPrincipalTarget().getAlias(), routePanel, routeMapLabel, infoRouteLabel, orderedBy);
             JOptionPane.showMessageDialog(null, "Ruta recalculada", "Info", JOptionPane.INFORMATION_MESSAGE);
 
             if (this.actualPaths.getSize() == 0) {
                 System.out.println("No hay caminos");
-                this.actualPaths = guiController.sortPaths(adyMatrix.travel(actualCell.getDestination(), auxPreviousNode), orderedBy);
+                this.actualPaths = guiController.sortPaths(adyMatrix.travel(actualCell.getDestination(), auxPreviousNode, isWalkButton.isSelected()), orderedBy);
                 guiController.setPathsButtons(pathsScroll, this.actualPaths,
                         actualCell.getDestination().getAlias(), guiController.getPrincipalTarget().getAlias(), routePanel, routeMapLabel, infoRouteLabel, orderedBy);
                 JOptionPane.showMessageDialog(null, "Ruta recalculada", "Info", JOptionPane.INFORMATION_MESSAGE);
@@ -572,7 +628,7 @@ public class TravelMapGT extends javax.swing.JFrame {
     }//GEN-LAST:event_isWalkButtonActionPerformed
 
     private void pauseClockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseClockActionPerformed
-       guiController.pauseClock();
+        guiController.pauseClock();
     }//GEN-LAST:event_pauseClockActionPerformed
 
     private void editHourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editHourActionPerformed
@@ -580,8 +636,74 @@ public class TravelMapGT extends javax.swing.JFrame {
     }//GEN-LAST:event_editHourActionPerformed
 
     private void resetClockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetClockActionPerformed
-       guiController.setRealHour();
+        guiController.setRealHour();
     }//GEN-LAST:event_resetClockActionPerformed
+
+    private void getBetterByGasRouteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getBetterByGasRouteActionPerformed
+
+        if (!haveInfo() && this.actualPaths.getSize() > 0) {
+            return;
+        }
+
+        GenericOrderedList<OrderedCellList> auxPaths = this.actualPaths;
+        auxPaths = guiController.sortPaths(auxPaths, 2);
+        guiController.setPathSelected(auxPaths.get(0));
+        JOptionPane.showMessageDialog(null, "Mejor ruta seleccionada", "Succes", JOptionPane.INFORMATION_MESSAGE);
+        travel(2);
+
+    }//GEN-LAST:event_getBetterByGasRouteActionPerformed
+
+    private void getBetterByWearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getBetterByWearActionPerformed
+
+        if (!haveInfo() && this.actualPaths.getSize() > 0) {
+            return;
+        }
+
+        GenericOrderedList<OrderedCellList> auxPaths = this.actualPaths;
+        auxPaths = guiController.sortPaths(auxPaths, 1);
+        guiController.setPathSelected(auxPaths.get(0));
+        JOptionPane.showMessageDialog(null, "Mejor ruta seleccionada", "Succes", JOptionPane.INFORMATION_MESSAGE);
+        travel(1);
+    }//GEN-LAST:event_getBetterByWearActionPerformed
+
+    private void getBetterByDistancenGasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getBetterByDistancenGasActionPerformed
+
+        if (!haveInfo() && this.actualPaths.getSize() > 0) {
+            return;
+        }
+
+        GenericOrderedList<OrderedCellList> auxPaths = this.actualPaths;
+        auxPaths = guiController.sortPaths(auxPaths, 5);
+        guiController.setPathSelected(auxPaths.get(0));
+        JOptionPane.showMessageDialog(null, "Mejor ruta seleccionada", "Succes", JOptionPane.INFORMATION_MESSAGE);
+        travel(5);
+    }//GEN-LAST:event_getBetterByDistancenGasActionPerformed
+
+    private void getBetterByDistancenWearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getBetterByDistancenWearActionPerformed
+
+        if (!haveInfo() && this.actualPaths.getSize() > 0) {
+            return;
+        }
+
+        GenericOrderedList<OrderedCellList> auxPaths = this.actualPaths;
+        auxPaths = guiController.sortPaths(auxPaths, 6);
+        guiController.setPathSelected(auxPaths.get(0));
+        JOptionPane.showMessageDialog(null, "Mejor ruta seleccionada", "Succes", JOptionPane.INFORMATION_MESSAGE);
+        travel(6);
+    }//GEN-LAST:event_getBetterByDistancenWearActionPerformed
+
+    private void getBetterByDistanceTimenTrafficActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getBetterByDistanceTimenTrafficActionPerformed
+
+            if (!haveInfo() && this.actualPaths.getSize() > 0) {
+                return;
+            }
+
+            GenericOrderedList<OrderedCellList> auxPaths = this.actualPaths;
+            auxPaths = guiController.sortPaths(auxPaths, 7);
+            guiController.setPathSelected(auxPaths.get(0));
+            JOptionPane.showMessageDialog(null, "Mejor ruta seleccionada", "Succes", JOptionPane.INFORMATION_MESSAGE);
+            travel(7);
+    }//GEN-LAST:event_getBetterByDistanceTimenTrafficActionPerformed
 
     private void addLocationActionPerformed(java.awt.event.ActionEvent evt) {
 
@@ -624,6 +746,15 @@ public class TravelMapGT extends javax.swing.JFrame {
         }
     }
 
+    private void travel(int orderedBy) {
+        String path = guiController.getPathSelected().get(0).getOrigin().getAlias() + "To" + guiController.getPathSelected().get(guiController.getPathSelected().getSize()).getDestination().getAlias();
+        String pathFile = "Graphs/" + path + "/" + path + 0 + ".png";
+        if (guiController.setImageAsPanel(routePanel, routeMapLabel, pathFile)) {
+            guiController.setImageAsPanel(routePanel, routeMapLabel, pathFile);
+        }
+        guiController.setLabelInfo(infoRouteLabel, guiController.getPathSelected(), 0, orderedBy);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem addLocation;
     private javax.swing.JMenuItem addTrafficInfo;
@@ -632,6 +763,11 @@ public class TravelMapGT extends javax.swing.JFrame {
     private javax.swing.JMenuItem editHour;
     private javax.swing.JMenu fileJMenu;
     private javax.swing.JButton fullMapViewButton;
+    private javax.swing.JMenuItem getBetterByDistanceTimenTraffic;
+    private javax.swing.JMenuItem getBetterByDistancenGas;
+    private javax.swing.JMenuItem getBetterByDistancenWear;
+    private javax.swing.JMenuItem getBetterByGasRoute;
+    private javax.swing.JMenuItem getBetterByWear;
     private javax.swing.JMenuItem graphTreeOption;
     private javax.swing.JLabel hourLabel;
     private javax.swing.JPanel infoPanel;
@@ -646,6 +782,7 @@ public class TravelMapGT extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
@@ -656,6 +793,7 @@ public class TravelMapGT extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
+    private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JTextArea logTextArea;
     private javax.swing.JScrollPane mapPanel;
     private javax.swing.JButton navigateButton;
